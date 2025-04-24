@@ -1,0 +1,82 @@
+/* VoiceAgent.css */
+
+/* زر خاص بالـ VoiceAgent */
+.voice-agent-btn {
+  position: fixed; /* خلينا الزر في مكان ثابت في الصفحة */
+  bottom: 30px; /* بعد المسافة من الأسفل */
+  right: 30px; /* بعد المسافة من اليمين */
+  padding: 0;
+  display: inline-block;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #1a1418, #1e1e1e);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease-in-out; /* جعلنا الحركة أكثر سلاسة */
+  z-index: 9999;
+  cursor:copy;
+}
+
+/* جلو بنفسجي */
+.voice-agent-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, #9b4edd, #7c3aed, #9b4edd);
+  animation: rotate 4s linear infinite;
+  filter: blur(20px);
+  z-index: 0;
+}
+
+/* محتوى الزر */
+.voice-agent-btn .btnInner {
+  position: relative;
+  z-index: 1;
+  color: #f5f0ff;
+  padding: 14px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  backdrop-filter: blur(40px);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* جعلنا الانتقال سلس */
+  border-radius: 9999px;
+  background-color: rgba(24, 24, 24, 0.8);
+}
+
+/* لمسة hover */
+.voice-agent-btn:hover {
+  transform: scale(1.3); /* جعلنا الحركة أكثر سلاسة */
+}
+
+/* حركة الدوران للجلو */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* دخان متطاير داخل الزر */
+@keyframes smokeEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.2), 0 0 80px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.voice-agent-btn:hover .btnInner {
+  animation: smokeEffect 5s ease-out infinite; /* خليت الحركة أكثر سلاسة */
+}
