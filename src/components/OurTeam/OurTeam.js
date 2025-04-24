@@ -51,7 +51,7 @@ const OurTeam = () => {
         </div>
         <div className="person blur-wrapper">
           <img
-            src="../../assets/Mohamed.jpg"
+            src="../../assets/mohamed.jpg"
             alt="Mohamed Khalid"
             className="img-person"
           />
